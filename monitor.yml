@@ -1,0 +1,30 @@
+name: Monitor Codici Hoyoverse
+
+on:
+  schedule:
+    - cron: '0 */12 * * *'  # Ogni 12 ore
+  workflow_dispatch:          # Permette di avviarlo manualmente
+
+jobs:
+  monitor:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Scarica il codice dal repository
+        uses: actions/checkout@v4
+
+      - name: Ripristina il database (codici già noti)
+        uses: actions/cache@v4
+        with:
+          path: codes.db
+          key: codes-db-${{ github.run_number }}
+          restore-keys: codes-db-
+
+      - name: Installa le dipendenze Python
+        run: pip install -r requirements.txt
+
+      - name: Esegui il monitor
+        env:
+          DISCORD_WEBHOOK_HSR: ${{ secrets.DISCORD_WEBHOOK_HSR }}
+          DISCORD_WEBHOOK_GENSHIN: ${{ secrets.DISCORD_WEBHOOK_GENSHIN }}
+        run: python main.py
