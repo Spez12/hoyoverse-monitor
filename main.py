@@ -26,8 +26,12 @@ HEADERS = {
 FONTI = [
     {"gioco": "Honkai Star Rail", "url": "https://www.hoyolab.com"},
     {"gioco": "Honkai Star Rail", "url": "https://www.pockettactics.com/honkai-star-rail/codes"},
+    {"gioco": "Honkai Star Rail", "url": "https://gamesradar.com/honkai-star-rail-codes/"},
+    {"gioco": "Honkai Star Rail", "url": "https://dotesports.com/honkai-star-rail/news/all-honkai-star-rail-codes"},
     {"gioco": "Genshin Impact",   "url": "https://www.hoyolab.com"},
     {"gioco": "Genshin Impact",   "url": "https://www.pockettactics.com/genshin-impact/codes"},
+    {"gioco": "Genshin Impact",   "url": "https://gamesradar.com/genshin-impact-codes/"},
+    {"gioco": "Genshin Impact",   "url": "https://dotesports.com/genshin-impact/news/genshin-impact-codes"},
 ]
 
 
