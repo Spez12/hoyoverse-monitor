@@ -12,8 +12,11 @@ import os
 DISCORD_WEBHOOK_HSR     = os.getenv("DISCORD_WEBHOOK_HSR", "")
 DISCORD_WEBHOOK_GENSHIN = os.getenv("DISCORD_WEBHOOK_GENSHIN", "")
 
-# Regex per trovare codici redeem (8-12 caratteri alfanumerici maiuscoli)
-CODICE_REGEX = re.compile(r'\b[A-Z0-9]{8,12}\b')
+# Regex per trovare codici redeem:
+# - 8-12 caratteri alfanumerici maiuscoli
+# - deve contenere ALMENO una lettera e ALMENO un numero
+# (esclude sequenze puramente numeriche come timestamp e ID)
+CODICE_REGEX = re.compile(r'\b(?=[A-Z0-9]*[A-Z])(?=[A-Z0-9]*[0-9])[A-Z0-9]{8,12}\b')
 
 # Headers per le richieste HTTP
 HEADERS = {
